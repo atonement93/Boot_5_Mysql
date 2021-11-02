@@ -22,11 +22,11 @@ public class NoticeController {
 	}
 	
 	@GetMapping("selectOne")
-	public BoardVO getSelectOne(int num) throws Exception{
+	public BoardVO getSelectOne(BoardVO boardVO) throws Exception{
 		//String num = request.getParameter("num");
 		//int n = Integer.parseInt(num);
-		BoardVO boardVO = new BoardVO();
-		boardVO.setNum(num);
+		//BoardVO boardVO = new BoardVO();
+		//boardVO.setNum(num);
 		boardVO = noticeService.getSelectOne(boardVO);
 		
 		return boardVO;
