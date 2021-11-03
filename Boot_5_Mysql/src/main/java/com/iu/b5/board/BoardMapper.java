@@ -2,7 +2,7 @@ package com.iu.b5.board;
 
 import java.util.List;
 
-import com.iu.b5.utill.Pager;
+import com.iu.b5.util.Pager;
 
 public interface BoardMapper {
 	

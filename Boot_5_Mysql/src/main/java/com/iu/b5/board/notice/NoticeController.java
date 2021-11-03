@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.b5.board.BoardVO;
-import com.iu.b5.utill.Pager;
+import com.iu.b5.util.Pager;
 
 @Controller
 @RequestMapping("/notice/**")

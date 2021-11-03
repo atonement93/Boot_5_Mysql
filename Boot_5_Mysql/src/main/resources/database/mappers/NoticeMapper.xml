@@ -23,8 +23,16 @@
 		select * from notice where num=#{num};
 	</select>
 	
-	<select id="getSelectList" resultType="BoardVO">
-		select * from notice order by num desc;
+	<select id="getSelectList" parameterType="Pager" resultType="BoardVO">
+		select * from notice 
+		where 
+			<choose>
+				<when test="kind == 'writer'">writer</when>
+				<when test="kind == 'contents'">contents</when>
+				<otherwise>title</otherwise>
+			</choose>
+		like concat('%', #{search}, '%')
+		order by num desc;
 	</select>
 	
 </mapper>

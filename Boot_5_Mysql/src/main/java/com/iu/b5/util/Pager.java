@@ -1,4 +1,4 @@
-package com.iu.b5.utill;
+package com.iu.b5.util;
 
 public class Pager {
 
@@ -8,11 +8,15 @@ public class Pager {
 	public String getKind() {
 		return kind;
 	}
+
 	public void setKind(String kind) {
 		this.kind = kind;
 	}
 	public String getSearch() {
-		return search;
+		if(this.search==null) {
+			this.search="";
+		}
+		return this.search;
 	}
 	public void setSearch(String search) {
 		this.search = search;

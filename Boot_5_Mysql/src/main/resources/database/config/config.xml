@@ -7,5 +7,6 @@
   	<typeAliases>
   		<typeAlias type="com.iu.b5.board.BoardVO" alias="BoardVO"/>
   		<typeAlias type="com.iu.b5.board.notice.NoticeVO" alias="NoticeVO"/>
+  		<typeAlias type="com.iu.b5.util.Pager" alias="Pager"/>
   	</typeAliases>
   </configuration>
