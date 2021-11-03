@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.iu.b5.board.BoardService;
 import com.iu.b5.board.BoardVO;
+import com.iu.b5.utill.Pager;
 
 @Service //DI , IOC
 public class NoticeService implements BoardService{
@@ -39,9 +40,9 @@ public class NoticeService implements BoardService{
 	}
 
 	@Override
-	public List<BoardVO> getSelectList() throws Exception {
+	public List<BoardVO> getSelectList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return noticeMapper.getSelectList();
+		return noticeMapper.getSelectList(pager);
 	}
 	
 	

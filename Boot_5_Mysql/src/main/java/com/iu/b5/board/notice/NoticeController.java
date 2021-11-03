@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.b5.board.BoardVO;
+import com.iu.b5.utill.Pager;
 
 @Controller
 @RequestMapping("/notice/**")
@@ -79,8 +80,9 @@ public class NoticeController {
 	}
 	
 	@GetMapping("selectList")
-	public ModelAndView getSelectList(ModelAndView mv) throws Exception{
-		List<BoardVO> ar = noticeService.getSelectList();
+	public ModelAndView getSelectList(Pager pager, ModelAndView mv) throws Exception{
+		//kind : colum, search : 검색어
+		List<BoardVO> ar = noticeService.getSelectList(pager);
 		mv.setViewName("board/list");
 		mv.addObject("boardList", ar);
 		return mv;

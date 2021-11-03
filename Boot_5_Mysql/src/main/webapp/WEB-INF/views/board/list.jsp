@@ -9,6 +9,8 @@
 </head>
 <body>
 	<h1>${board} List page</h1>
+	
+	<!-- 검색 -->
 	<form action="./selectList">
 		<select name="kind">
 			<option value="title">Title</option>

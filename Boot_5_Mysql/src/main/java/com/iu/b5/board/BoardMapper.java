@@ -2,6 +2,8 @@ package com.iu.b5.board;
 
 import java.util.List;
 
+import com.iu.b5.utill.Pager;
+
 public interface BoardMapper {
 	
 	//Insert 글쓰기
@@ -20,5 +22,5 @@ public interface BoardMapper {
 	public BoardVO getSelectOne(BoardVO boardVO) throws Exception;
 	
 	//select 글 리스트 조회
-	public List<BoardVO> getSelectList() throws Exception;
+	public List<BoardVO> getSelectList(Pager pager) throws Exception;
 }
