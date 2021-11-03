@@ -19,7 +19,7 @@
 		delete from notice where num=#{num};
 	</delete>
 	
-	<select id="getSelectOne" parameterType="BoardVO" resultType="BoardVO">
+	<select id="getSelectOne" parameterType="BoardVO" resultType="NoticeVO">
 		select * from notice where num=#{num};
 	</select>
 	

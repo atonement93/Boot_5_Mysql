@@ -1,5 +1,7 @@
 package com.iu.b5.board.notice;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.b5.board.BoardVO;
 
@@ -44,18 +47,36 @@ public class NoticeController {
 	public String setUpdate(BoardVO boardVO) throws Exception{
 		int result = noticeService.setUpdate(boardVO);
 		
+		return "redirect:./selectOne?num="+boardVO.getNum();
+	}
+	
+	@GetMapping("delete")
+	public String setDelete(BoardVO boardVO) throws Exception{
+		int result = noticeService.setDelete(boardVO);
 		return "redirect:./selectList";
 	}
 	
 	@GetMapping("selectOne")
-	public BoardVO getSelectOne(BoardVO boardVO) throws Exception{
+	public ModelAndView getSelectOne(BoardVO boardVO) throws Exception{
 		//String num = request.getParameter("num");
 		//int n = Integer.parseInt(num);
 		//BoardVO boardVO = new BoardVO();
 		//boardVO.setNum(num);
+		ModelAndView mv = new ModelAndView();
 		boardVO = noticeService.getSelectOne(boardVO);
 		
-		return boardVO;
+		mv.setViewName("board/select");
+		mv.addObject("boardVO", boardVO);
+		
+		return mv;
+	}
+	
+	@GetMapping("selectList")
+	public ModelAndView getSelectList(ModelAndView mv) throws Exception{
+		List<BoardVO> ar = noticeService.getSelectList();
+		mv.setViewName("board/list");
+		mv.addObject("boardList", ar);
+		return mv;
 	}
 
 }
