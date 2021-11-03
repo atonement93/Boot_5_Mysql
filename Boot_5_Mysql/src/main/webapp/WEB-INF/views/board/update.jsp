@@ -11,7 +11,7 @@
 	
 	<form action="./update" method="post">
 		title : <input type="text" name="title" value="${boardVO.title}"><br>
-		writer : <input type="text" name="writer" value="${boardVO.writer}"><br>
+		writer : <input type="text" name="writer" value="${boardVO.writer}" readonly="readonly"><br>
 		contents : <textarea rows="" cols="" name="contents">${boardVO.contents}</textarea><br>
 		<button type="submit">Update</button>
 	</form>
