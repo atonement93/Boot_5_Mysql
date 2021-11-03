@@ -33,7 +33,7 @@
 			</choose>
 		like concat('%', #{search}, '%')
 		order by num desc
-		limit 0, 10
+		limit #{startRow}, #{perPage}
 	</select>
 	
 </mapper>

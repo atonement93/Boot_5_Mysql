@@ -42,6 +42,7 @@ public class NoticeService implements BoardService{
 	@Override
 	public List<BoardVO> getSelectList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
+		pager.makeRow();
 		return noticeMapper.getSelectList(pager);
 	}
 	
