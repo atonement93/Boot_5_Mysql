@@ -10,6 +10,7 @@
 	<h1>${board} Update Page</h1>
 	
 	<form action="./update" method="post">
+		<input type="hidden" name="num" value="${boardVO.num}">
 		title : <input type="text" name="title" value="${boardVO.title}"><br>
 		writer : <input type="text" name="writer" value="${boardVO.writer}" readonly="readonly"><br>
 		contents : <textarea rows="" cols="" name="contents">${boardVO.contents}</textarea><br>
