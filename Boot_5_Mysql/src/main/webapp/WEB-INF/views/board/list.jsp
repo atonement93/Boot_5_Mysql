@@ -9,6 +9,15 @@
 </head>
 <body>
 	<h1>${board} List page</h1>
+	<form action="./selectList">
+		<select name="kind">
+			<option value="title">Title</option>
+			<option value="contents">Contents</option>
+			<option value="writer">Writer</option>
+		</select>
+		<input type="text" name="search">
+		<button type="submit">Search</button>
+	</form>
 	
 	<table>
 		<tr>
