@@ -19,7 +19,7 @@
 		<c:forEach items="${boardList}" var="boardVO">
 			<tr>
 				<td>${boardVO.num}</td>
-				<td>${boardVO.title}</td>
+				<td><a href="./selectOne?num=${boardVO.num}">${boardVO.title}</a></td>
 				<td>${boardVO.writer}</td>
 				<td>${boardVO.regDate}</td>
 				<td>${boardVO.hit}</td>
