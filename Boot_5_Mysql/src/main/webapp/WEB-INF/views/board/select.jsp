@@ -8,5 +8,9 @@
 </head>
 <body>
 	<h1>${board} Select Page</h1>
+	
+	<h3>Title : ${boardVO.title}</h3>
+	<h3>Writer : ${boardVO.writer }</h3>
+	<h3>Contents : ${boardVO.contents}</h3>
 </body>
 </html>
