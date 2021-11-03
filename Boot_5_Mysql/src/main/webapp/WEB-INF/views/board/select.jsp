@@ -14,5 +14,6 @@
 	<h3>Contents : ${boardVO.contents}</h3>
 	
 	<a href="./delete?num=${boardVO.num}">Delete</a>
+	<a href="./update?num=${boardVO.num}">Update</a>
 </body>
 </html>
