@@ -7,20 +7,20 @@
 <mapper namespace="com.iu.b5.board.notice.NoticeMapper">
 	<insert id="setInsert" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="num">
 		insert into notice (num, title, contents, writer, hit, regDate)
-		values(#{num}, #{title}, #{contents}, #{writer}, 0, now());
+		values(#{num}, #{title}, #{contents}, #{writer}, 0, now())
 	</insert>
 	
 	<update id="setUpdate" parameterType="BoardVO">
 		update notice set title=#{title}, contents=#{contents}
-		where num=#{num};
+		where num=#{num}
 	</update>
 	
 	<delete id="setDelete" parameterType="BoardVO">
-		delete from notice where num=#{num};
+		delete from notice where num=#{num}
 	</delete>
 	
 	<select id="getSelectOne" parameterType="BoardVO" resultType="NoticeVO">
-		select * from notice where num=#{num};
+		select * from notice where num=#{num}
 	</select>
 	
 	<select id="getSelectList" parameterType="Pager" resultType="BoardVO">
@@ -32,7 +32,8 @@
 				<otherwise>title</otherwise>
 			</choose>
 		like concat('%', #{search}, '%')
-		order by num desc;
+		order by num desc
+		limit 0, 10
 	</select>
 	
 </mapper>

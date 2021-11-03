@@ -17,9 +17,9 @@ class NoticeMapperTest {
 	
 	//@Test
 	void getSelectListTest() throws Exception {
-		List<BoardVO> ar = noticeMapper.getSelectList();
-		
-		assertNotEquals(0, ar.size());
+//		List<BoardVO> ar = noticeMapper.getSelectList();
+//		
+//		assertNotEquals(0, ar.size());
 	}
 	
 	//@Test
@@ -55,16 +55,24 @@ class NoticeMapperTest {
 	
 	@Test
 	void setInsertTest() throws Exception{
+		for(int i=0;i<100;i++) {
 		BoardVO boardVO = new BoardVO();
-		boardVO.setTitle("title1");
-		boardVO.setContents("contents1");
-		boardVO.setWriter("writer1");
+		boardVO.setTitle("title"+i);
+		boardVO.setContents("contents"+i);
+		boardVO.setWriter("writer"+i);
 		
 		int result = noticeMapper.setInsert(boardVO);
 		
-		System.out.println(boardVO.getNum());
+		if(i%10==0) {
+			Thread.sleep(500);
+		}
 		
-		assertNotEquals(0, result);
+		
+		}
+		System.out.println("Finish");
+		
+//		assertNotEquals(0, result);
+		
 	}
 
 }
