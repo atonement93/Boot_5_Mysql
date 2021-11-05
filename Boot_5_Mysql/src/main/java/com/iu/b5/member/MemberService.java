@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.iu.b5.util.FileManager;
 
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class MemberService {
 	
 	@Autowired
@@ -18,7 +19,7 @@ public class MemberService {
 	public MemberVO getSelectOne(MemberVO memberVO) throws Exception{
 		return memberRepository.getSelectOne(memberVO);
 	}
-	@Transactional(rollbackFor = Exception.class)
+	
 	public int setInsert(MemberVO memberVO, MultipartFile files) throws Exception {
 		int result = memberRepository.setInsert(memberVO);
 		
