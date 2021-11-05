@@ -10,7 +10,11 @@ public class Pager {
 	private Integer perPage; //한 페이지에 글 몇개
 	private Integer pn; //현재페이지 번호
 	private Integer startRow; //limit의 시작번호
+	
+	private Long startNum;
+	private Long lastNum;
 
+	private boolean lastCheck; //true면 마지막블럭, false면 
 	
 	public void makeRow() {
 		this.startRow = (this.getPn()-1)*this.getPerPage();
@@ -37,17 +41,23 @@ public class Pager {
 		}
 		
 		//5. curBlock으로 시작번호와 끝번호 구하기
-		Long startNum = (curBlock-1)*perBlock+1;
-		Long lastNum = curBlock*perBlock;
+		startNum = (curBlock-1)*perBlock+1;
+		lastNum = curBlock*perBlock;
 		
 		System.out.println("시작번호 : "+startNum);
 		System.out.println("끝번호 : "+lastNum);
+		
+		if(curBlock==totalBlock) {
+			lastCheck=true;
+			lastNum=totalPage;
+		}
+		
 	}
 	
-	//---------------- getter, setter
+	//------------------------------------
 	
 	public Integer getPn() {
-		if(this.pn==null || this.pn==0) {
+		if(this.pn==null || this.pn<1) {
 			this.pn=1;
 		}
 		return pn;
@@ -67,7 +77,33 @@ public class Pager {
 		return perPage;
 	}
 	
+	//---------------- getter, setter
+	
+	public Long getStartNum() {
+		return startNum;
+	}
 
+	public void setStartNum(Long startNum) {
+		this.startNum = startNum;
+	}
+
+	public Long getLastNum() {
+		return lastNum;
+	}
+
+	public void setLastNum(Long lastNum) {
+		this.lastNum = lastNum;
+	}
+
+	public boolean isLastCheck() {
+		return lastCheck;
+	}
+
+	public void setLastCheck(boolean lastCheck) {
+		this.lastCheck = lastCheck;
+	}
+
+	
 	public void setPerPage(Integer perPage) {
 		this.perPage = perPage;
 	}
