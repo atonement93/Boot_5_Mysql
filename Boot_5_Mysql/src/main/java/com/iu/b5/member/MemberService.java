@@ -31,6 +31,11 @@ public class MemberService {
 		memberFilesVO.setFileName(fileName);
 		memberFilesVO.setOriName(files.getOriginalFilename());
 		result = memberRepository.setFileInsert(memberFilesVO);
+		
+		if(result==0) {
+			throw new Exception();
+		}
+		
 		}
 		memberRepository.setFileInsert(null);
 		return result;
