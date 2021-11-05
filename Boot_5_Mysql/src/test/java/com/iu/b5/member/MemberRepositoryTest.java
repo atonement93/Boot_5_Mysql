@@ -13,6 +13,17 @@ class MemberRepositoryTest {
 	private MemberRepository memberRepository;
 
 	@Test
+	void getSelectOneTest() throws Exception{
+		MemberVO memberVO = new MemberVO();
+		memberVO.setId("user");
+		memberVO.setPw("user");
+		memberVO = memberRepository.getSelectOne(memberVO);
+		
+		assertNotNull(memberVO);
+	}
+	
+	
+	@Test
 	void setFileInsertTest() throws Exception{
 		MemberFilesVO memberFilesVO = new MemberFilesVO();
 		memberFilesVO.setMember_id("uesr");
