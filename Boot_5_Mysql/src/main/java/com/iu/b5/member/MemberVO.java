@@ -5,7 +5,14 @@ public class MemberVO {
 	private String pw;
 	private String name;
 	private String email;
+	private String role;
 	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public String getId() {
 		return id;
 	}
