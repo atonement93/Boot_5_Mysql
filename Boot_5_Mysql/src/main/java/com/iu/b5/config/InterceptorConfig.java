@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.iu.b5.interceptor.NoticeInterceptor;
 import com.iu.b5.interceptor.TestInterceptor;
+import com.iu.b5.interceptor.UpdateInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer{
@@ -15,6 +16,8 @@ public class InterceptorConfig implements WebMvcConfigurer{
 	private TestInterceptor testInterceptor;
 	@Autowired
 	private NoticeInterceptor noticeInterceptor;
+	@Autowired
+	private UpdateInterceptor updateInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -31,5 +34,9 @@ public class InterceptorConfig implements WebMvcConfigurer{
 				.addPathPatterns("/notice/*")
 				.excludePathPatterns("/notice/selectList")
 				.excludePathPatterns("/notice/selectOne");
+		
+		registry.addInterceptor(updateInterceptor)
+				.addPathPatterns("/notice/update")
+				.addPathPatterns("/qna/update");
 	}
 }

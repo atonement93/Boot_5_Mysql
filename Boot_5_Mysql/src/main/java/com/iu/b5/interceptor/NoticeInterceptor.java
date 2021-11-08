@@ -1,5 +1,6 @@
 package com.iu.b5.interceptor;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -26,7 +27,11 @@ public class NoticeInterceptor implements HandlerInterceptor{
 		if(memberVO != null && memberVO.getRole().equals("A")) {
 			check=true;
 		}else {
-			response.sendRedirect("../member/memberLogin");
+			//response.sendRedirect("../member/memberLogin");
+			request.setAttribute("msg", "관리자만 가능");
+			request.setAttribute("path", "./selectList");
+			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
+			view.forward(request, response);
 		}
 		
 		return check;
