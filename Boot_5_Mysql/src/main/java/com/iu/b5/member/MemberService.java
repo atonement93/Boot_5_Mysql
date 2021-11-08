@@ -25,7 +25,7 @@ public class MemberService {
 		
 		//파일이 실제 있을 때만 실행(isEmpty 혹은 사이즈가 0보다 클 때)
 		if(!files.isEmpty()) {
-		String fileName = fileManager.getUserServletContext("upload/member", files);
+		String fileName = fileManager.getUseServletContext("upload/member", files);
 		MemberFilesVO memberFilesVO = new MemberFilesVO();
 		memberFilesVO.setMember_id(memberVO.getId());
 		memberFilesVO.setFileName(fileName);
