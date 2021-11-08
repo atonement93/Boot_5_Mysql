@@ -24,6 +24,10 @@ public class UpdateInterceptor implements HandlerInterceptor{
 		Map<String, Object> model = modelAndView.getModel();
 		BoardVO boardVO = (BoardVO) model.get("boardVO");
 		
+		if(boardVO == null) {
+			return;
+		}
+		
 		if(!memberVO.getId().equals(boardVO.getWriter())) {
 			modelAndView.addObject("msg", "작성자 아님");
 			modelAndView.addObject("path", "./selectList");
