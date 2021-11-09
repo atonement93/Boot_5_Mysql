@@ -49,7 +49,7 @@ public class MemberController {
 	//회원가입 처리
 	@PostMapping("memberJoin")
 	public String setInsert(@Valid MemberVO memberVO, BindingResult bindingResult, MultipartFile files) throws Exception{
-		if(bindingResult.hasErrors()) {
+		if(memberService.memberError(memberVO, bindingResult)) {
 			return "member/memberJoin";
 		}
 		

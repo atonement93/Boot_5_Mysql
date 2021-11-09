@@ -8,6 +8,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class MemberVO {
 	@NotBlank
@@ -24,6 +25,7 @@ public class MemberVO {
 	@NotBlank
 	private Integer age;
 	@Past
+	@DateTimeFormat(pattern="yyyyMMdd")
 	private Date birth;
 	private String role;
 	

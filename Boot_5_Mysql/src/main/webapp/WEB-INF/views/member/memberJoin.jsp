@@ -22,6 +22,11 @@
 		</div>
 		
 		<div>
+		pwCheck <form:password path="pwCheck"/>
+		<form:errors path="pwCheck"></form:errors>
+		</div>
+		
+		<div>
 		name <form:input path="name"/>
 		<form:errors path="name"></form:errors>
 		</div>
