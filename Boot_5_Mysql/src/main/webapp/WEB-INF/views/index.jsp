@@ -16,7 +16,7 @@
 	<c:choose>
 		<c:when test="${not empty member}">
 			<h3> ${member.name}님 
-				<spring:message code="hello" var="m" text="Default Message"></spring:message>
+				<h3><spring:message code="member.info" arguments="${member.id},${member.email}" argumentSeparator=","></spring:message></h3><spring:message code="hello" var="m" text="Default Message"></spring:message>
 			</h3>
 		</c:when>
 		<c:otherwise>
