@@ -18,8 +18,10 @@ public class MemberVO {
 	@NotBlank
 	private String name;
 	@Email
+	@NotBlank
 	private String email;
 	@Range(min = 0, max = 150)
+	@NotBlank
 	private Integer age;
 	@Past
 	private Date birth;
