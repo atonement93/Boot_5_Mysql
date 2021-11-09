@@ -1,10 +1,28 @@
 package com.iu.b5.member;
 
+import java.sql.Date;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
+
 public class MemberVO {
+	@NotBlank
 	private String id;
+	@Size(max = 12, min = 6)
 	private String pw;
+	private String pwCheck;
+	@NotBlank
 	private String name;
+	@Email
 	private String email;
+	@Range(min = 0, max = 150)
+	private Integer age;
+	@Past
+	private Date birth;
 	private String role;
 	
 	public String getRole() {
@@ -24,6 +42,12 @@ public class MemberVO {
 	}
 	public void setPw(String pw) {
 		this.pw = pw;
+	}
+	public String getPwCheck() {
+		return pwCheck;
+	}
+	public void setPwCheck(String pwCheck) {
+		this.pwCheck = pwCheck;
 	}
 	public String getName() {
 		return name;

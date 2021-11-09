@@ -2,9 +2,12 @@ package com.iu.b5.board;
 
 import java.sql.Date;
 
+import javax.validation.constraints.NotBlank;
+
 public class BoardVO {
 	
 	private Integer num;
+	@NotBlank(message = "칸을 채워주세요.")
 	private String title;
 	private String contents;
 	private String writer;

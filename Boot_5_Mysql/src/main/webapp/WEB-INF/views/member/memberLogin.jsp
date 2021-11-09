@@ -11,6 +11,7 @@
 	<form action="./memberLogin" method="post">
 		Id : <input type="text" name="id"><br>
 		Pw : <input type="password" name="pw"><br>
+		Pwcheck : <input type="password" name="pwCheck"><br>
 		<button type="submit">로그인</button>
 	</form>
 </body>

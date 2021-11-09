@@ -1,10 +1,13 @@
 package com.iu.b5.member;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,7 +37,7 @@ public class MemberController {
 	
 	//회원가입 폼으로 이동
 	@GetMapping("memberJoin")
-	public void setInsert() throws Exception{
+	public void setInsert(@ModelAttribute MemberVO memberVO) throws Exception{
 //		방법1 - 리턴 String
 //		ModelAndView mv = new ModelAndView();
 //		mv.setViewName("member/memberJoin");
@@ -45,8 +48,12 @@ public class MemberController {
 	
 	//회원가입 처리
 	@PostMapping("memberJoin")
-	public String setInsert(MemberVO memberVO, MultipartFile files) throws Exception{
-		int result = memberService.setInsert(memberVO, files);
+	public String setInsert(@Valid MemberVO memberVO, BindingResult bindingResult, MultipartFile files) throws Exception{
+		if(bindingResult.hasErrors()) {
+			return "member/memberJoin";
+		}
+		
+//		int result = memberService.setInsert(memberVO, files);
 //		방법1 - 리턴 String
 		return "redirect:../";
 		
