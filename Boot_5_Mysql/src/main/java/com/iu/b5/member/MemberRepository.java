@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface MemberRepository {
 	
+	//ID 중복 확인
+	public MemberVO getSelect(MemberVO memberVO) throws Exception;
+	
 	//로그인
 	public MemberVO getSelectOne(MemberVO memberVO) throws Exception;
 	

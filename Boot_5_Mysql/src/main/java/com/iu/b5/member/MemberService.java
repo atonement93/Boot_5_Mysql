@@ -32,6 +32,13 @@ public class MemberService {
 			check=true;
 		}
 		
+		//3. Id 중복 검증
+		memberVO = memberRepository.getSelect(memberVO);
+		if(memberVO != null) {
+			bindingResult.rejectValue("id", "member.id.equals");
+			check=true;
+		}
+		
 		return check;
 	}
 	

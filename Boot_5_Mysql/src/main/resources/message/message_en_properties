@@ -1,3 +1,4 @@
 hello=welcome
 hello.hi=hello
 member.info=Your Id is {0}, Email address is {1}.
+member.id.equals=ID is not capable.
