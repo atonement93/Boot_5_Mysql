@@ -3,6 +3,7 @@ package com.iu.b5.board;
 import java.sql.Date;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class BoardVO {
 	
@@ -10,6 +11,7 @@ public class BoardVO {
 	@NotBlank(message = "칸을 채워주세요.")
 	private String title;
 	private String contents;
+	@Size(min=3, max=6)
 	private String writer;
 	private Integer hit;
 	private Date regDate;

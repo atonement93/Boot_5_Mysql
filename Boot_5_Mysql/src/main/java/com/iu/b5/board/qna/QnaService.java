@@ -12,31 +12,31 @@ public class QnaService {
 	@Autowired //DI
 	private QnaRepository qnaRepository;
 	
-	@Override
+	//@Override
 	public int setInsert(BoardVO boardVO) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaRepository.setInsert(boardVO);
 	}
 
-	@Override
+	//@Override
 	public int setUpdate(BoardVO boardVO) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaRepository.setUpdate(boardVO);
 	}
 
-	@Override
+	//@Override
 	public int setDelete(BoardVO boardVO) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaRepository.setDelete(boardVO);
 	}
 
-	@Override
+	//@Override
 	public BoardVO getSelectOne(BoardVO boardVO) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaRepository.getSelectOne(boardVO);
 	}
 
-	@Override
+	//@Override
 	public List<BoardVO> getSelectList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
 		pager.makeRow();
