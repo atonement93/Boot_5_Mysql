@@ -1,6 +1,9 @@
 package com.iu.b5.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -10,7 +13,7 @@ import com.iu.b5.util.FileManager;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class MemberService {
+public class MemberService implements UserDetailsService{
 	
 	@Autowired
 	private MemberRepository memberRepository;
@@ -40,6 +43,12 @@ public class MemberService {
 		}
 		
 		return check;
+	}
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	public MemberVO getSelectOne(MemberVO memberVO) throws Exception{
